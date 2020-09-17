@@ -64,21 +64,27 @@ void app_main()
     esp_err_t err;
     sdmmc_card_t *card;
 
+    ESP_LOGI(TAG, "Starting camera");
     if ((err = camera_start()) != ESP_OK) {
         ESP_LOGE(TAG, "camera_start(): %s", esp_err_to_name(err));
     }
 
+    ESP_LOGI(TAG, "Starting SD card");
     if ((card = sdcard_start()) == NULL) {
         ESP_LOGE(TAG, "sdcard_start(): failed to mount SD card");
     }
+
+    ESP_LOGI(TAG, "Taking a picture");
     if (save_photo() != ESP_OK) {
         ESP_LOGE(TAG, "save_photo()");
     }
 
+    ESP_LOGI(TAG, "Stopping SD card");
     if ((err = sdcard_stop(card)) != ESP_OK) {
         ESP_LOGE(TAG, "sdcard_stop(): %s", esp_err_to_name(err));
     }
 
+    ESP_LOGI(TAG, "Sleeping");
     esp_sleep_enable_timer_wakeup(TEN_SEC_IN_USEC);
     esp_deep_sleep_start();
 
