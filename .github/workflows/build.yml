@@ -77,6 +77,7 @@ jobs:
             ;;
           v4.1*)
             TOOLCHAIN_VERSION="esp-2020r2-8.2.0"
+            ;;
           master)
             TOOLCHAIN_VERSION="esp-2020r3-8.2.0"
             ;;
