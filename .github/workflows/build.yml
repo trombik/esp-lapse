@@ -24,6 +24,7 @@ jobs:
       matrix:
         build_method:
           - idf
+          - make
         branch:
           - master
     steps:
