@@ -40,5 +40,5 @@ sdmmc_card_t *sdcard_start()
 
 esp_err_t sdcard_stop(sdmmc_card_t *card)
 {
-    return esp_vfs_fat_sdcard_unmount(NAME_SPACE, card);
+    return esp_vfs_fat_sdmmc_unmount(NAME_SPACE, card);
 }
