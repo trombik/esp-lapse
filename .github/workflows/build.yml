@@ -27,6 +27,7 @@ jobs:
           - make
         branch:
           - master
+          - v4.1
     steps:
       - name: Checkout
         uses: actions/checkout@v2
