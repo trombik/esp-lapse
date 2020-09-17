@@ -170,6 +170,7 @@ jobs:
       - name: Build (make)
         if: ${{ matrix.build_method == 'make' }}
         run: |
+          export TERM="xterm"
           IGNORE_FILE="travis-ignore"
           . ${IDF_PATH}/export.sh
 
