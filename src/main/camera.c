@@ -97,6 +97,24 @@ esp_err_t camera_start()
     return err;
 }
 
+esp_err_t camera_stop()
+{
+    esp_err_t err;
+
+    if ((err = esp_camera_deinit()) != ESP_OK) {
+        ESP_LOGE(TAG, "esp_camera_deinit(): %s", esp_err_to_name(err));
+    }
+#if 0
+
+    /* XXX this requires modifications to the PCB */
+    if ((err = gpio_set_level(PWDN_GPIO_NUM, HIGH)) != ESP_OK) {
+        ESP_LOGE(TAG, "gpio_set_level(): %s", esp_err_to_name(err));
+    }
+#endif
+    return err;
+}
+
+
 camera_fb_t *get_picture()
 {
     camera_fb_t *fb;

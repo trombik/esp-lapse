@@ -84,6 +84,11 @@ void app_main()
         ESP_LOGE(TAG, "sdcard_stop(): %s", esp_err_to_name(err));
     }
 
+    ESP_LOGI(TAG, "Stopping camera");
+    if ((err = camera_stop()) != ESP_OK) {
+        ESP_LOGE(TAG, "camera_stop(): %s", esp_err_to_name(err));
+    }
+
     ESP_LOGI(TAG, "Sleeping");
     esp_sleep_enable_timer_wakeup(TEN_SEC_IN_USEC);
     esp_deep_sleep_start();

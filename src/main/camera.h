@@ -24,6 +24,11 @@
 esp_err_t camera_start();
 
 /*
+ * @brief Deinitialize the camera.
+ */
+esp_err_t camera_stop();
+
+/*
  * @brief Take a picture
  *
  * @return pointer to camera_fb_t that contains image, or NULL
