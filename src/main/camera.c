@@ -5,6 +5,7 @@
 #include "camera.h"
 
 #define TAG "lapse_camera"
+#define N_TRAINING_SHOTS (2)
 
 static esp_err_t camera_set_default()
 {
@@ -119,6 +120,16 @@ camera_fb_t *get_picture()
 {
     camera_fb_t *fb;
 
+    /* traing AGC/AWB */
+    for (int i = N_TRAINING_SHOTS; i != 0; i--) {
+        ESP_LOGI(TAG, "Training %d", i);
+        if ((fb = esp_camera_fb_get()) == NULL) {
+            ESP_LOGW(TAG, "esp_camera_fb_get()");
+        }
+        esp_camera_fb_return(fb);
+    }
+
+    ESP_LOGI(TAG, "Taking a picture");
     if ((fb = esp_camera_fb_get()) == NULL) {
         ESP_LOGE(TAG, "esp_camera_fb_get()");
         goto fail;
