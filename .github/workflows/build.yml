@@ -174,4 +174,5 @@ jobs:
           IGNORE_FILE="travis-ignore"
           . ${IDF_PATH}/export.sh
 
+          make -C "${__PROJECT_EXAMPLE_DIR}" defconfig
           make -C "${__PROJECT_EXAMPLE_DIR}"
