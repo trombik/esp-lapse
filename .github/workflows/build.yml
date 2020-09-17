@@ -24,11 +24,8 @@ jobs:
       matrix:
         build_method:
           - idf
-          - make
         branch:
           - master
-          - v4.1
-          - v4.0.1
     steps:
       - name: Checkout
         uses: actions/checkout@v2
