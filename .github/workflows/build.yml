@@ -75,8 +75,10 @@ jobs:
           v4.0.1)
             TOOLCHAIN_VERSION="esp-2019r2-8.2.0"
             ;;
-          v4.1*|master)
+          v4.1*)
             TOOLCHAIN_VERSION="esp-2020r2-8.2.0"
+          master)
+            TOOLCHAIN_VERSION="esp-2020r3-8.2.0"
             ;;
           esac
           REPO_DIR=`pwd`
