@@ -28,7 +28,7 @@ static esp_err_t save_photo()
 
     err = ESP_FAIL;
     localtime_r(&now, &timeinfo);
-    size = strftime(filename, sizeof(filename), "/sdcard/%Y-%m-%dT%H:%M:%S+00:00.jpg", &timeinfo);
+    size = strftime(filename, sizeof(filename), "/sdcard/%Y-%m-%dT%H:%M:%S%z.jpg", &timeinfo);
     if (size == 0) {
         ESP_LOGE(TAG, "strftime(): failed");
         goto fail;
